@@ -82,7 +82,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/eleType.cpp">
+			<Option target="pokecmd"/>
+		</Unit>
+		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/eleType.h">
+			<Option target="pokecmd"/>
+		</Unit>
 		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/main.cpp">
+			<Option target="pokecmd"/>
+		</Unit>
+		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.cpp">
+			<Option target="pokecmd"/>
+		</Unit>
+		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h">
 			<Option target="pokecmd"/>
 		</Unit>
 		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/CMakeLists.txt">

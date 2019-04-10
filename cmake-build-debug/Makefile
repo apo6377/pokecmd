@@ -123,6 +123,33 @@ pokecmd/fast:
 	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/build
 .PHONY : pokecmd/fast
 
+eleType.o: eleType.cpp.o
+
+.PHONY : eleType.o
+
+# target to build an object file
+eleType.cpp.o:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/eleType.cpp.o
+.PHONY : eleType.cpp.o
+
+eleType.i: eleType.cpp.i
+
+.PHONY : eleType.i
+
+# target to preprocess a source file
+eleType.cpp.i:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/eleType.cpp.i
+.PHONY : eleType.cpp.i
+
+eleType.s: eleType.cpp.s
+
+.PHONY : eleType.s
+
+# target to generate assembly for a file
+eleType.cpp.s:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/eleType.cpp.s
+.PHONY : eleType.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -150,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+pokemon.o: pokemon.cpp.o
+
+.PHONY : pokemon.o
+
+# target to build an object file
+pokemon.cpp.o:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/pokemon.cpp.o
+.PHONY : pokemon.cpp.o
+
+pokemon.i: pokemon.cpp.i
+
+.PHONY : pokemon.i
+
+# target to preprocess a source file
+pokemon.cpp.i:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/pokemon.cpp.i
+.PHONY : pokemon.cpp.i
+
+pokemon.s: pokemon.cpp.s
+
+.PHONY : pokemon.s
+
+# target to generate assembly for a file
+pokemon.cpp.s:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/pokemon.cpp.s
+.PHONY : pokemon.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... pokecmd"
 	@echo "... edit_cache"
+	@echo "... eleType.o"
+	@echo "... eleType.i"
+	@echo "... eleType.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... pokemon.o"
+	@echo "... pokemon.i"
+	@echo "... pokemon.s"
 .PHONY : help
 
 

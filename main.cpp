@@ -1,3 +1,7 @@
+/* Main I/O class
+ * Auth: Alex Olds, Kevin Re
+ */
+
 #include <iostream>
 
 int main() {

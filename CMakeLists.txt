@@ -4,4 +4,4 @@ project(pokecmd)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(pokecmd
-        main.cpp)
+        main.cpp pokemon.cpp pokemon.h pokeType.cpp pokeType.h)
