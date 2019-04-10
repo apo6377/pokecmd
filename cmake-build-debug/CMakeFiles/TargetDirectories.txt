@@ -1,0 +1,3 @@
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles/pokecmd.dir
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles/edit_cache.dir
