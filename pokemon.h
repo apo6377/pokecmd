@@ -1,11 +1,10 @@
 //
-// Created by alex on 4/10/19.
+// Auth: Alex Olds, Kevin Re
 //
 
 #ifndef POKECMD_POKEMON_H
 #define POKECMD_POKEMON_H
 
-#include "pokeType.h"
 #include <vector>
 
 using namespace std;
@@ -16,6 +15,8 @@ public:
 
     enum eleType{Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric,
         Psychic, Ice, Dragon, Dark, Fairy};
+
+    pokemon(char *, char *, pokemon::eleType, pokemon::eleType, int, double, double, int, char *, char *);
 
     char *getName() const;
 
