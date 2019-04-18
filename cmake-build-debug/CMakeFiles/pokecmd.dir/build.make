@@ -83,34 +83,49 @@ CMakeFiles/pokecmd.dir/pokemon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pokecmd.dir/pokemon.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.cpp -o CMakeFiles/pokecmd.dir/pokemon.cpp.s
 
-CMakeFiles/pokecmd.dir/eleType.cpp.o: CMakeFiles/pokecmd.dir/flags.make
-CMakeFiles/pokecmd.dir/eleType.cpp.o: ../eleType.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/pokecmd.dir/eleType.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pokecmd.dir/eleType.cpp.o -c /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/eleType.cpp
+CMakeFiles/pokecmd.dir/entry.cpp.o: CMakeFiles/pokecmd.dir/flags.make
+CMakeFiles/pokecmd.dir/entry.cpp.o: ../entry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/pokecmd.dir/entry.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pokecmd.dir/entry.cpp.o -c /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.cpp
 
-CMakeFiles/pokecmd.dir/eleType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pokecmd.dir/eleType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/eleType.cpp > CMakeFiles/pokecmd.dir/eleType.cpp.i
+CMakeFiles/pokecmd.dir/entry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pokecmd.dir/entry.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.cpp > CMakeFiles/pokecmd.dir/entry.cpp.i
 
-CMakeFiles/pokecmd.dir/eleType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pokecmd.dir/eleType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/eleType.cpp -o CMakeFiles/pokecmd.dir/eleType.cpp.s
+CMakeFiles/pokecmd.dir/entry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pokecmd.dir/entry.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.cpp -o CMakeFiles/pokecmd.dir/entry.cpp.s
+
+CMakeFiles/pokecmd.dir/human.cpp.o: CMakeFiles/pokecmd.dir/flags.make
+CMakeFiles/pokecmd.dir/human.cpp.o: ../human.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/pokecmd.dir/human.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pokecmd.dir/human.cpp.o -c /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.cpp
+
+CMakeFiles/pokecmd.dir/human.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pokecmd.dir/human.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.cpp > CMakeFiles/pokecmd.dir/human.cpp.i
+
+CMakeFiles/pokecmd.dir/human.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pokecmd.dir/human.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.cpp -o CMakeFiles/pokecmd.dir/human.cpp.s
 
 # Object files for target pokecmd
 pokecmd_OBJECTS = \
 "CMakeFiles/pokecmd.dir/main.cpp.o" \
 "CMakeFiles/pokecmd.dir/pokemon.cpp.o" \
-"CMakeFiles/pokecmd.dir/eleType.cpp.o"
+"CMakeFiles/pokecmd.dir/entry.cpp.o" \
+"CMakeFiles/pokecmd.dir/human.cpp.o"
 
 # External object files for target pokecmd
 pokecmd_EXTERNAL_OBJECTS =
 
 pokecmd: CMakeFiles/pokecmd.dir/main.cpp.o
 pokecmd: CMakeFiles/pokecmd.dir/pokemon.cpp.o
-pokecmd: CMakeFiles/pokecmd.dir/eleType.cpp.o
+pokecmd: CMakeFiles/pokecmd.dir/entry.cpp.o
+pokecmd: CMakeFiles/pokecmd.dir/human.cpp.o
 pokecmd: CMakeFiles/pokecmd.dir/build.make
 pokecmd: CMakeFiles/pokecmd.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable pokecmd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable pokecmd"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pokecmd.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

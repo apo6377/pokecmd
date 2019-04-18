@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/eleType.cpp" "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles/pokecmd.dir/eleType.cpp.o"
+  "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.cpp" "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles/pokecmd.dir/entry.cpp.o"
+  "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.cpp" "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles/pokecmd.dir/human.cpp.o"
   "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/main.cpp" "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles/pokecmd.dir/main.cpp.o"
   "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.cpp" "/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug/CMakeFiles/pokecmd.dir/pokemon.cpp.o"
   )

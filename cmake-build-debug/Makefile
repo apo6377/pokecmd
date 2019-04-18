@@ -123,32 +123,59 @@ pokecmd/fast:
 	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/build
 .PHONY : pokecmd/fast
 
-eleType.o: eleType.cpp.o
+entry.o: entry.cpp.o
 
-.PHONY : eleType.o
+.PHONY : entry.o
 
 # target to build an object file
-eleType.cpp.o:
-	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/eleType.cpp.o
-.PHONY : eleType.cpp.o
+entry.cpp.o:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/entry.cpp.o
+.PHONY : entry.cpp.o
 
-eleType.i: eleType.cpp.i
+entry.i: entry.cpp.i
 
-.PHONY : eleType.i
+.PHONY : entry.i
 
 # target to preprocess a source file
-eleType.cpp.i:
-	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/eleType.cpp.i
-.PHONY : eleType.cpp.i
+entry.cpp.i:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/entry.cpp.i
+.PHONY : entry.cpp.i
 
-eleType.s: eleType.cpp.s
+entry.s: entry.cpp.s
 
-.PHONY : eleType.s
+.PHONY : entry.s
 
 # target to generate assembly for a file
-eleType.cpp.s:
-	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/eleType.cpp.s
-.PHONY : eleType.cpp.s
+entry.cpp.s:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/entry.cpp.s
+.PHONY : entry.cpp.s
+
+human.o: human.cpp.o
+
+.PHONY : human.o
+
+# target to build an object file
+human.cpp.o:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/human.cpp.o
+.PHONY : human.cpp.o
+
+human.i: human.cpp.i
+
+.PHONY : human.i
+
+# target to preprocess a source file
+human.cpp.i:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/human.cpp.i
+.PHONY : human.cpp.i
+
+human.s: human.cpp.s
+
+.PHONY : human.s
+
+# target to generate assembly for a file
+human.cpp.s:
+	$(MAKE) -f CMakeFiles/pokecmd.dir/build.make CMakeFiles/pokecmd.dir/human.cpp.s
+.PHONY : human.cpp.s
 
 main.o: main.cpp.o
 
@@ -213,9 +240,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... pokecmd"
 	@echo "... edit_cache"
-	@echo "... eleType.o"
-	@echo "... eleType.i"
-	@echo "... eleType.s"
+	@echo "... entry.o"
+	@echo "... entry.i"
+	@echo "... entry.s"
+	@echo "... human.o"
+	@echo "... human.i"
+	@echo "... human.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

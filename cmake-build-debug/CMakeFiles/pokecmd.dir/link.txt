@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/pokecmd.dir/main.cpp.o CMakeFiles/pokecmd.dir/pokemon.cpp.o CMakeFiles/pokecmd.dir/eleType.cpp.o  -o pokecmd 
+/usr/bin/c++  -g   CMakeFiles/pokecmd.dir/main.cpp.o CMakeFiles/pokecmd.dir/pokemon.cpp.o CMakeFiles/pokecmd.dir/entry.cpp.o CMakeFiles/pokecmd.dir/human.cpp.o  -o pokecmd 
