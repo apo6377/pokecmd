@@ -15,9 +15,7 @@ public:
     };
 
     friend ostream &operator<<(ostream &out, const pokeType &type) {
-        switch (type){
 
-        }
     }
 };
 
