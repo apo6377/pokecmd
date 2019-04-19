@@ -18,11 +18,12 @@ public:
     enum eleType{Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric,
         Psychic, Ice, Dragon, Dark, Fairy, NONE};
 
-    pokemon(char *, char *, pokemon::eleType, pokemon::eleType, double, double, int, char *, char *, char *);
+    pokemon(string nm, string dsc, pokemon::eleType typ1, pokemon::eleType typ2, double hgt,
+            double wgt, int n, string abil1, string abil2, string hAbil);
 
-    char *getName() const;
+    string getName() const;
 
-    char *getDesc() const;
+    string getDesc() const;
 
     eleType getType1() const;
 
@@ -34,11 +35,11 @@ public:
 
     int getNum() const;
 
-    char *getAbility1() const;
+    string getAbility1() const;
 
-    char *getAbility2() const;
+    string getAbility2() const;
 
-    char *getHiddenAbility() const;
+    string getHiddenAbility() const;
 
 
     vector<pokemon::eleType> getWeaknesses();
@@ -52,16 +53,16 @@ public:
 
 private:
 
-    char * name;
-    char * desc;
+    string name;
+    string desc;
     eleType type1;
     eleType type2;
     double height;
     double weight;
     int num;
-    char * ability1;
-    char * ability2;
-    char * hiddenAbility;
+    string ability1;
+    string ability2;
+    string hiddenAbility;
     vector<pokemon::eleType> weaknesses;
     vector<pokemon::eleType> resistances;
     vector<pokemon::eleType> immunities;

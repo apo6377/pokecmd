@@ -6,7 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/main.cpp
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.h
+iostream
+-
+vector
+-
+
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.cpp
+utility
+-
+utility
+-
+pokemon.h
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h
+iostream
+-
+vector
+-
+algorithm
+-
+
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h
+entry.h
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.h
+vector
+-
 iostream
 -
 

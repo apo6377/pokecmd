@@ -15,12 +15,25 @@ class human: public entry {
 
 public:
 
+    human(string nm, string title, string desc);
+    human(string nm, string title, vector<pokemon> team, string desc);
+
+    string getName() const;
+
+    string getTitle() const;
+
+    const vector<pokemon> &getTeam() const;
+
+    string getDesc() const;
+
+    void print(ostream &os) const override;
+
 
 private:
-    char * name;
-    char * title;
+    string name;
+    string title;
     vector <pokemon> team;
-    char * desc;
+    string desc;
 
 };
 
