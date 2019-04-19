@@ -12,6 +12,22 @@ iostream
 vector
 -
 
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.h
+entry.h
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.h
+pokemon.h
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h
+iostream
+-
+
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/main.cpp
+iostream
+-
+pokemon.h
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h
+human.h
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.h
+
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.cpp
 utility
 -

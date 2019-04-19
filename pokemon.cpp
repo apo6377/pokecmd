@@ -7,13 +7,12 @@
 //
 
 #include "pokemon.h"
+#include "pokeType.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-pokemon::pokemon(string nm, string dsc, pokemon::eleType typ1, pokemon::eleType typ2, double hgt,
+pokemon::pokemon(string nm, string dsc, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
                  double wgt, int n, string abil1, string abil2, string hAbil) {
     name = std::move(nm);
     desc = std::move(dsc);
@@ -32,7 +31,7 @@ pokemon::pokemon(string nm, string dsc, pokemon::eleType typ1, pokemon::eleType 
 
     // find and remove conflicting weaknesses and resistances
     if (weaknesses.size() >= resistances.size()) {
-        for (eleType &type : weaknesses) {
+        for (pokeType::eleType &type : weaknesses) {
             if (find(resistances.begin(), resistances.end(), type) != resistances.end()) {
 
                 weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
@@ -40,7 +39,7 @@ pokemon::pokemon(string nm, string dsc, pokemon::eleType typ1, pokemon::eleType 
             }
         }
     }else{
-        for (eleType &type : resistances) {
+        for (pokeType::eleType &type : resistances) {
             if (find(weaknesses.begin(), weaknesses.end(), type) != weaknesses.end()) {
 
                 weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
@@ -50,13 +49,13 @@ pokemon::pokemon(string nm, string dsc, pokemon::eleType typ1, pokemon::eleType 
     }
 
     // find and remove extra weaknesses and resistances that are also immunities
-    for(eleType &type : weaknesses){
+    for(pokeType::eleType &type : weaknesses){
         if (find(immunities.begin(), immunities.end(), type) != immunities.end()){
             weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
         }
     }
 
-    for(eleType &type : resistances){
+    for(pokeType::eleType &type : resistances){
         if (find(immunities.begin(), immunities.end(), type) != immunities.end()){
             resistances.erase(find(resistances.begin(), resistances.end(), type));
         }
@@ -72,11 +71,11 @@ string pokemon::getDesc() const {
     return desc;
 }
 
-pokemon::eleType pokemon::getType1() const {
+pokeType::eleType pokemon::getType1() const {
     return type1;
 }
 
-pokemon::eleType pokemon::getType2() const {
+pokeType::eleType pokemon::getType2() const {
     return type2;
 }
 
@@ -105,99 +104,100 @@ string pokemon::getHiddenAbility() const {
 }
 
 void pokemon::setWeaknesses() {
+
     weaknesses.resize(0);
 
     switch (type1) {
 
-        case Normal:
+        case pokeType::Normal:
 
-            weaknesses.push_back(Fighting);
+            weaknesses.push_back(pokeType::Fighting);
             break;
-        case Fighting:
-            weaknesses.push_back(Psychic);
-            weaknesses.push_back(Flying);
-            weaknesses.push_back(Fairy);
+        case pokeType::Fighting:
+            weaknesses.push_back(pokeType::Psychic);
+            weaknesses.push_back(pokeType::Flying);
+            weaknesses.push_back(pokeType::Fairy);
             break;
-        case Flying:
-            weaknesses.push_back(Electric);
-            weaknesses.push_back(Rock);
-            weaknesses.push_back(Ice);
+        case pokeType::Flying:
+            weaknesses.push_back(pokeType::Electric);
+            weaknesses.push_back(pokeType::Rock);
+            weaknesses.push_back(pokeType::Ice);
             break;
-        case Poison:
-            weaknesses.push_back(Ground);
-            weaknesses.push_back(Psychic);
+        case pokeType::Poison:
+            weaknesses.push_back(pokeType::Ground);
+            weaknesses.push_back(pokeType::Psychic);
             break;
-        case Ground:
-            weaknesses.push_back(Water);
-            weaknesses.push_back(Grass);
-            weaknesses.push_back(Ice);
+        case pokeType::Ground:
+            weaknesses.push_back(pokeType::Water);
+            weaknesses.push_back(pokeType::Grass);
+            weaknesses.push_back(pokeType::Ice);
             break;
-        case Rock:
-            weaknesses.push_back(Water);
-            weaknesses.push_back(Grass);
-            weaknesses.push_back(Fighting);
-            weaknesses.push_back(Ground);
-            weaknesses.push_back(Steel);
+        case pokeType::Rock:
+            weaknesses.push_back(pokeType::Water);
+            weaknesses.push_back(pokeType::Grass);
+            weaknesses.push_back(pokeType::Fighting);
+            weaknesses.push_back(pokeType::Ground);
+            weaknesses.push_back(pokeType::Steel);
             break;
-        case Bug:
-            weaknesses.push_back(Fire);
-            weaknesses.push_back(Flying);
-            weaknesses.push_back(Rock);
+        case pokeType::Bug:
+            weaknesses.push_back(pokeType::Fire);
+            weaknesses.push_back(pokeType::Flying);
+            weaknesses.push_back(pokeType::Rock);
             break;
-        case Ghost:
-            weaknesses.push_back(Ghost);
-            weaknesses.push_back(Dark);
+        case pokeType::Ghost:
+            weaknesses.push_back(pokeType::Ghost);
+            weaknesses.push_back(pokeType::Dark);
             break;
-        case Steel:
-            weaknesses.push_back(Fire);
-            weaknesses.push_back(Fighting);
-            weaknesses.push_back(Ground);
+        case pokeType::Steel:
+            weaknesses.push_back(pokeType::Fire);
+            weaknesses.push_back(pokeType::Fighting);
+            weaknesses.push_back(pokeType::Ground);
             break;
-        case Fire:
-            weaknesses.push_back(Water);
-            weaknesses.push_back(Ground);
-            weaknesses.push_back(Rock);
+        case pokeType::Fire:
+            weaknesses.push_back(pokeType::Water);
+            weaknesses.push_back(pokeType::Ground);
+            weaknesses.push_back(pokeType::Rock);
             break;
-        case Water:
-            weaknesses.push_back(Electric);
-            weaknesses.push_back(Grass);
+        case pokeType::Water:
+            weaknesses.push_back(pokeType::Electric);
+            weaknesses.push_back(pokeType::Grass);
             break;
-        case Grass:
-            weaknesses.push_back(Fire);
-            weaknesses.push_back(Ice);
-            weaknesses.push_back(Poison);
-            weaknesses.push_back(Flying);
-            weaknesses.push_back(Bug);
+        case pokeType::Grass:
+            weaknesses.push_back(pokeType::Fire);
+            weaknesses.push_back(pokeType::Ice);
+            weaknesses.push_back(pokeType::Poison);
+            weaknesses.push_back(pokeType::Flying);
+            weaknesses.push_back(pokeType::Bug);
             break;
-        case Electric:
-            weaknesses.push_back(Ground);
+        case pokeType::Electric:
+            weaknesses.push_back(pokeType::Ground);
             break;
-        case Psychic:
-            weaknesses.push_back(Bug);
-            weaknesses.push_back(Ghost);
-            weaknesses.push_back(Dark);
+        case pokeType::Psychic:
+            weaknesses.push_back(pokeType::Bug);
+            weaknesses.push_back(pokeType::Ghost);
+            weaknesses.push_back(pokeType::Dark);
             break;
-        case Ice:
-            weaknesses.push_back(Fire);
-            weaknesses.push_back(Fighting);
-            weaknesses.push_back(Rock);
-            weaknesses.push_back(Steel);
+        case pokeType::Ice:
+            weaknesses.push_back(pokeType::Fire);
+            weaknesses.push_back(pokeType::Fighting);
+            weaknesses.push_back(pokeType::Rock);
+            weaknesses.push_back(pokeType::Steel);
             break;
-        case Dragon:
-            weaknesses.push_back(Dragon);
-            weaknesses.push_back(Ice);
-            weaknesses.push_back(Fairy);
+        case pokeType::Dragon:
+            weaknesses.push_back(pokeType::Dragon);
+            weaknesses.push_back(pokeType::Ice);
+            weaknesses.push_back(pokeType::Fairy);
             break;
-        case Dark:
-            weaknesses.push_back(Fighting);
-            weaknesses.push_back(Bug);
-            weaknesses.push_back(Fairy);
+        case pokeType::Dark:
+            weaknesses.push_back(pokeType::Fighting);
+            weaknesses.push_back(pokeType::Bug);
+            weaknesses.push_back(pokeType::Fairy);
             break;
-        case Fairy:
-            weaknesses.push_back(Poison);
-            weaknesses.push_back(Steel);
+        case pokeType::Fairy:
+            weaknesses.push_back(pokeType::Poison);
+            weaknesses.push_back(pokeType::Steel);
             break;
-        case NONE:
+        case pokeType::NONE:
             break;
     }
 
@@ -205,213 +205,213 @@ void pokemon::setWeaknesses() {
 
     switch (type2) {
 
-        case Normal:
-            if (none_of(weaknesses.begin(), weaknesses.end(), [](int i) { return i == Fighting; }))
-                weaknesses.push_back(Fighting);
+        case pokeType::Normal:
+            if (none_of(weaknesses.begin(), weaknesses.end(), [](int i) { return i == pokeType::Fighting; }))
+                weaknesses.push_back(pokeType::Fighting);
 
             break;
-        case Fighting:
+        case pokeType::Fighting:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Psychic; }))
-                weaknesses.push_back(Psychic);
+                        [](int i) { return i == pokeType::Psychic; }))
+                weaknesses.push_back(pokeType::Psychic);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Flying; }))
-                weaknesses.push_back(Flying);
+                        [](int i) { return i == pokeType::Flying; }))
+                weaknesses.push_back(pokeType::Flying);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Flying; }))
-                weaknesses.push_back(Fairy);
+                        [](int i) { return i == pokeType::Flying; }))
+                weaknesses.push_back(pokeType::Fairy);
 
             break;
-        case Flying:
+        case pokeType::Flying:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Electric; }))
-                weaknesses.push_back(Electric);
+                        [](int i) { return i == pokeType::Electric; }))
+                weaknesses.push_back(pokeType::Electric);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Rock; }))
-                weaknesses.push_back(Rock);
+                        [](int i) { return i == pokeType::Rock; }))
+                weaknesses.push_back(pokeType::Rock);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                weaknesses.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice; }))
+                weaknesses.push_back(pokeType::Ice);
 
             break;
-        case Poison:
+        case pokeType::Poison:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ground; }))
-                weaknesses.push_back(Ground);
+                        [](int i) { return i == pokeType::Ground; }))
+                weaknesses.push_back(pokeType::Ground);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Psychic; }))
-                weaknesses.push_back(Psychic);
+                        [](int i) { return i == pokeType::Psychic; }))
+                weaknesses.push_back(pokeType::Psychic);
 
             break;
-        case Ground:
+        case pokeType::Ground:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Water; }))
-                weaknesses.push_back(Water);
+                        [](int i) { return i == pokeType::Water; }))
+                weaknesses.push_back(pokeType::Water);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Grass; }))
-                weaknesses.push_back(Grass);
+                        [](int i) { return i == pokeType::Grass; }))
+                weaknesses.push_back(pokeType::Grass);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                weaknesses.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice; }))
+                weaknesses.push_back(pokeType::Ice);
 
             break;
-        case Rock:
+        case pokeType::Rock:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Water; }))
-                weaknesses.push_back(Water);
+                        [](int i) { return i == pokeType::Water; }))
+                weaknesses.push_back(pokeType::Water);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Grass; }))
-                weaknesses.push_back(Grass);
+                        [](int i) { return i == pokeType::Grass; }))
+                weaknesses.push_back(pokeType::Grass);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fighting; }))
-                weaknesses.push_back(Fighting);
+                        [](int i) { return i == pokeType::Fighting; }))
+                weaknesses.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ground; }))
-                weaknesses.push_back(Ground);
+                        [](int i) { return i == pokeType::Ground; }))
+                weaknesses.push_back(pokeType::Ground);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Steel; }))
-                weaknesses.push_back(Steel);
+                        [](int i) { return i == pokeType::Steel; }))
+                weaknesses.push_back(pokeType::Steel);
             break;
-        case Bug:
+        case pokeType::Bug:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fire; }))
-                weaknesses.push_back(Fire);
+                        [](int i) { return i == pokeType::Fire; }))
+                weaknesses.push_back(pokeType::Fire);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Flying; }))
-                weaknesses.push_back(Flying);
+                        [](int i) { return i == pokeType::Flying; }))
+                weaknesses.push_back(pokeType::Flying);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Rock; }))
-                weaknesses.push_back(Rock);
+                        [](int i) { return i == pokeType::Rock; }))
+                weaknesses.push_back(pokeType::Rock);
             break;
-        case Ghost:
+        case pokeType::Ghost:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ghost; }))
-                weaknesses.push_back(Ghost);
+                        [](int i) { return i == pokeType::Ghost; }))
+                weaknesses.push_back(pokeType::Ghost);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Dark; }))
-                weaknesses.push_back(Dark);
+                        [](int i) { return i == pokeType::Dark; }))
+                weaknesses.push_back(pokeType::Dark);
             break;
-        case Steel:
+        case pokeType::Steel:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fire; }))
-                weaknesses.push_back(Fire);
+                        [](int i) { return i == pokeType::Fire; }))
+                weaknesses.push_back(pokeType::Fire);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Flying; }))
-                weaknesses.push_back(Fighting);
+                        [](int i) { return i == pokeType::Flying; }))
+                weaknesses.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ground; }))
-                weaknesses.push_back(Ground);
+                        [](int i) { return i == pokeType::Ground; }))
+                weaknesses.push_back(pokeType::Ground);
 
             break;
-        case Fire:
+        case pokeType::Fire:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Water; }))
-                weaknesses.push_back(Water);
+                        [](int i) { return i == pokeType::Water; }))
+                weaknesses.push_back(pokeType::Water);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ground; }))
-                weaknesses.push_back(Ground);
+                        [](int i) { return i == pokeType::Ground; }))
+                weaknesses.push_back(pokeType::Ground);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Rock; }))
-                weaknesses.push_back(Rock);
+                        [](int i) { return i == pokeType::Rock; }))
+                weaknesses.push_back(pokeType::Rock);
 
             break;
-        case Water:
+        case pokeType::Water:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Electric; }))
-                weaknesses.push_back(Electric);
+                        [](int i) { return i == pokeType::Electric; }))
+                weaknesses.push_back(pokeType::Electric);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Grass; }))
-                weaknesses.push_back(Grass);
+                        [](int i) { return i == pokeType::Grass; }))
+                weaknesses.push_back(pokeType::Grass);
             break;
-        case Grass:
+        case pokeType::Grass:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fire; }))
-                weaknesses.push_back(Fire);
+                        [](int i) { return i == pokeType::Fire; }))
+                weaknesses.push_back(pokeType::Fire);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                weaknesses.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice; }))
+                weaknesses.push_back(pokeType::Ice);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Poison; }))
-                weaknesses.push_back(Poison);
+                        [](int i) { return i == pokeType::Poison; }))
+                weaknesses.push_back(pokeType::Poison);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Flying; }))
-                weaknesses.push_back(Flying);
+                        [](int i) { return i == pokeType::Flying; }))
+                weaknesses.push_back(pokeType::Flying);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                weaknesses.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                weaknesses.push_back(pokeType::Bug);
 
             break;
-        case Electric:
+        case pokeType::Electric:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ground; }))
-                weaknesses.push_back(Ground);
+                        [](int i) { return i == pokeType::Ground; }))
+                weaknesses.push_back(pokeType::Ground);
             break;
-        case Psychic:
+        case pokeType::Psychic:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                weaknesses.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                weaknesses.push_back(pokeType::Bug);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ghost; }))
-                weaknesses.push_back(Ghost);
+                        [](int i) { return i ==pokeType::Ghost; }))
+                weaknesses.push_back(pokeType::Ghost);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Dark; }))
-                weaknesses.push_back(Dark);
+                        [](int i) { return i == pokeType::Dark; }))
+                weaknesses.push_back(pokeType::Dark);
 
             break;
-        case Ice:
+        case pokeType::Ice:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fire; }))
-                weaknesses.push_back(Fire);
+                        [](int i) { return i == pokeType::Fire; }))
+                weaknesses.push_back(pokeType::Fire);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fighting; }))
-                weaknesses.push_back(Fighting);
+                        [](int i) { return i == pokeType::Fighting; }))
+                weaknesses.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Rock; }))
-                weaknesses.push_back(Rock);
+                        [](int i) { return i ==pokeType::Rock;}))
+                weaknesses.push_back(pokeType::Rock);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Steel; }))
-                weaknesses.push_back(Steel);
+                        [](int i) { return i == pokeType::Steel; }))
+                weaknesses.push_back(pokeType::Steel);
 
             break;
-        case Dragon:
+        case pokeType::Dragon:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Dragon; }))
-                weaknesses.push_back(Dragon);
+                        [](int i) { return i == pokeType::Dragon; }))
+                weaknesses.push_back(pokeType::Dragon);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                weaknesses.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice; }))
+                weaknesses.push_back(pokeType::Ice);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fairy; }))
-                weaknesses.push_back(Fairy);
+                        [](int i) { return i == pokeType::Fairy; }))
+                weaknesses.push_back(pokeType::Fairy);
 
             break;
-        case Dark:
+        case pokeType::Dark:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fighting; }))
-                weaknesses.push_back(Fighting);
+                        [](int i) { return i == pokeType::Fighting; }))
+                weaknesses.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                weaknesses.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                weaknesses.push_back(pokeType::Bug);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fairy; }))
-                weaknesses.push_back(Fairy);
+                        [](int i) { return i == pokeType::Fairy; }))
+                weaknesses.push_back(pokeType::Fairy);
 
             break;
-        case Fairy:
+        case pokeType::Fairy:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Poison; }))
-                weaknesses.push_back(Poison);
+                        [](int i) { return i == pokeType::Poison; }))
+                weaknesses.push_back(pokeType::Poison);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Steel; }))
-                weaknesses.push_back(Steel);
+                        [](int i) { return i == pokeType::Steel; }))
+                weaknesses.push_back(pokeType::Steel);
 
             break;
-        case NONE:
+        case pokeType::NONE:
             break;
     }
 }
 
-vector<pokemon::eleType> pokemon::getWeaknesses() {
+vector<pokeType::eleType> pokemon::getWeaknesses() {
     return weaknesses;
 }
 
@@ -420,331 +420,331 @@ void pokemon::setResistances() {
 
     switch (type1) {
 
-        case Normal:
+        case pokeType::Normal:
             break;
-        case Fighting:
-            resistances.push_back(Rock);
-            resistances.push_back(Bug);
-            resistances.push_back(Dark);
+        case pokeType::Fighting:
+            resistances.push_back(pokeType::Rock);
+            resistances.push_back(pokeType::Bug);
+            resistances.push_back(pokeType::Dark);
             break;
-        case Flying:
-            resistances.push_back(Electric);
-            resistances.push_back(Rock);
-            resistances.push_back(Ice);
+        case pokeType::Flying:
+            resistances.push_back(pokeType::Electric);
+            resistances.push_back(pokeType::Rock);
+            resistances.push_back(pokeType::Ice);
             break;
-        case Poison:
-            resistances.push_back(Fighting);
-            resistances.push_back(Poison);
-            resistances.push_back(Bug);
-            resistances.push_back(Fairy);
+        case pokeType::Poison:
+            resistances.push_back(pokeType::Fighting);
+            resistances.push_back(pokeType::Poison);
+            resistances.push_back(pokeType::Bug);
+            resistances.push_back(pokeType::Fairy);
             break;
-        case Ground:
-            resistances.push_back(Poison);
-            resistances.push_back(Rock);
+        case pokeType::Ground:
+            resistances.push_back(pokeType::Poison);
+            resistances.push_back(pokeType::Rock);
             break;
-        case Rock:
-            resistances.push_back(Normal);
-            resistances.push_back(Flying);
-            resistances.push_back(Poison);
-            resistances.push_back(Fire);
+        case pokeType::Rock:
+            resistances.push_back(pokeType::Normal);
+            resistances.push_back(pokeType::Flying);
+            resistances.push_back(pokeType::Poison);
+            resistances.push_back(pokeType::Fire);
             break;
-        case Bug:
-            resistances.push_back(Fighting);
-            resistances.push_back(Ground);
-            resistances.push_back(Grass);
+        case pokeType::Bug:
+            resistances.push_back(pokeType::Fighting);
+            resistances.push_back(pokeType::Ground);
+            resistances.push_back(pokeType::Grass);
             break;
-        case Ghost:
-            resistances.push_back(Poison);
-            resistances.push_back(Bug);
+        case pokeType::Ghost:
+            resistances.push_back(pokeType::Poison);
+            resistances.push_back(pokeType::Bug);
             break;
-        case Steel:
-            resistances.push_back(Normal);
-            resistances.push_back(Flying);
-            resistances.push_back(Rock);
-            resistances.push_back(Bug);
-            resistances.push_back(Steel);
-            resistances.push_back(Grass);
-            resistances.push_back(Psychic);
-            resistances.push_back(Ice);
-            resistances.push_back(Dragon);
-            resistances.push_back(Fairy);
+        case pokeType::Steel:
+            resistances.push_back(pokeType::Normal);
+            resistances.push_back(pokeType::Flying);
+            resistances.push_back(pokeType::Rock);
+            resistances.push_back(pokeType::Bug);
+            resistances.push_back(pokeType::Steel);
+            resistances.push_back(pokeType::Grass);
+            resistances.push_back(pokeType::Psychic);
+            resistances.push_back(pokeType::Ice);
+            resistances.push_back(pokeType::Dragon);
+            resistances.push_back(pokeType::Fairy);
             break;
-        case Fire:
-            resistances.push_back(Bug);
-            resistances.push_back(Steel);
-            resistances.push_back(Fire);
-            resistances.push_back(Grass);
-            resistances.push_back(Ice);
-            resistances.push_back(Fairy);
+        case pokeType::Fire:
+            resistances.push_back(pokeType::Bug);
+            resistances.push_back(pokeType::Steel);
+            resistances.push_back(pokeType::Fire);
+            resistances.push_back(pokeType::Grass);
+            resistances.push_back(pokeType::Ice);
+            resistances.push_back(pokeType::Fairy);
             break;
-        case Water:
-            resistances.push_back(Steel);
-            resistances.push_back(Fire);
-            resistances.push_back(Water);
-            resistances.push_back(Ice);
+        case pokeType::Water:
+            resistances.push_back(pokeType::Steel);
+            resistances.push_back(pokeType::Fire);
+            resistances.push_back(pokeType::Water);
+            resistances.push_back(pokeType::Ice);
             break;
-        case Grass:
-            resistances.push_back(Ground);
-            resistances.push_back(Water);
-            resistances.push_back(Grass);
-            resistances.push_back(Electric);
+        case pokeType::Grass:
+            resistances.push_back(pokeType::Ground);
+            resistances.push_back(pokeType::Water);
+            resistances.push_back(pokeType::Grass);
+            resistances.push_back(pokeType::Electric);
             break;
-        case Electric:
-            resistances.push_back(Flying);
-            resistances.push_back(Steel);
-            resistances.push_back(Electric);
+        case pokeType::Electric:
+            resistances.push_back(pokeType::Flying);
+            resistances.push_back(pokeType::Steel);
+            resistances.push_back(pokeType::Electric);
             break;
-        case Psychic:
-            resistances.push_back(Fighting);
-            resistances.push_back(Psychic);
+        case pokeType::Psychic:
+            resistances.push_back(pokeType::Fighting);
+            resistances.push_back(pokeType::Psychic);
             break;
-        case Ice:
-            resistances.push_back(Ice);
+        case pokeType::Ice:
+            resistances.push_back(pokeType::Ice);
             break;
-        case Dragon:
-            resistances.push_back(Fire);
-            resistances.push_back(Water);
-            resistances.push_back(Grass);
-            resistances.push_back(Electric);
+        case pokeType::Dragon:
+            resistances.push_back(pokeType::Fire);
+            resistances.push_back(pokeType::Water);
+            resistances.push_back(pokeType::Grass);
+            resistances.push_back(pokeType::Electric);
             break;
-        case Dark:
-            resistances.push_back(Ghost);
-            resistances.push_back(Dark);
+        case pokeType::Dark:
+            resistances.push_back(pokeType::Ghost);
+            resistances.push_back(pokeType::Dark);
             break;
-        case Fairy:
-            resistances.push_back(Fighting);
-            resistances.push_back(Bug);
-            resistances.push_back(Dark);
+        case pokeType::Fairy:
+            resistances.push_back(pokeType::Fighting);
+            resistances.push_back(pokeType::Bug);
+            resistances.push_back(pokeType::Dark);
             break;
-        case NONE:
+        case pokeType::NONE:
             break;
     }
 
     switch (type2) {
 
-        case Normal:
+        case pokeType::Normal:
             break;
-        case Fighting:
+        case pokeType::Fighting:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Rock; }))
-                resistances.push_back(Rock);
+                        [](int i) { return i == pokeType::Rock; }))
+                resistances.push_back(pokeType::Rock);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                resistances.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                resistances.push_back(pokeType::Bug);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Dark; }))
-                resistances.push_back(Dark);
+                        [](int i) { return i == pokeType::Dark; }))
+                resistances.push_back(pokeType::Dark);
             break;
-        case Flying:
+        case pokeType::Flying:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Electric; }))
-                resistances.push_back(Electric);
+                        [](int i) { return i == pokeType::Electric; }))
+                resistances.push_back(pokeType::Electric);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Rock; }))
-                resistances.push_back(Rock);
+                        [](int i) { return i == pokeType::Rock; }))
+                resistances.push_back(pokeType::Rock);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                resistances.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice; }))
+                resistances.push_back(pokeType::Ice);
             break;
-        case Poison:
+        case pokeType::Poison:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fighting; }))
-                resistances.push_back(Fighting);
+                        [](int i) { return i == pokeType::Fighting; }))
+                resistances.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Poison; }))
-                resistances.push_back(Poison);
+                        [](int i) { return i == pokeType::Poison; }))
+                resistances.push_back(pokeType::Poison);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                resistances.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                resistances.push_back(pokeType::Bug);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fairy; }))
-                resistances.push_back(Fairy);
+                        [](int i) { return i == pokeType::Fairy; }))
+                resistances.push_back(pokeType::Fairy);
             break;
-        case Ground:
+        case pokeType::Ground:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Poison; }))
-                resistances.push_back(Poison);
+                        [](int i) { return i == pokeType::Poison; }))
+                resistances.push_back(pokeType::Poison);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Rock; }))
-                resistances.push_back(Rock);
+                        [](int i) { return i == pokeType::Rock; }))
+                resistances.push_back(pokeType::Rock);
             break;
-        case Rock:
+        case pokeType::Rock:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Normal; }))
-                resistances.push_back(Normal);
+                        [](int i) { return i == pokeType::Normal; }))
+                resistances.push_back(pokeType::Normal);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Flying; }))
-                resistances.push_back(Flying);
+                        [](int i) { return i == pokeType::Flying; }))
+                resistances.push_back(pokeType::Flying);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Poison; }))
-                resistances.push_back(Poison);
+                        [](int i) { return i == pokeType::Poison; }))
+                resistances.push_back(pokeType::Poison);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fire; }))
-                resistances.push_back(Fire);
+                        [](int i) { return i == pokeType::Fire; }))
+                resistances.push_back(pokeType::Fire);
             break;
-        case Bug:
+        case pokeType::Bug:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fighting; }))
-                resistances.push_back(Fighting);
+                        [](int i) { return i == pokeType::Fighting; }))
+                resistances.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ground; }))
-                resistances.push_back(Ground);
+                        [](int i) { return i == pokeType::Ground; }))
+                resistances.push_back(pokeType::Ground);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Grass; }))
-                resistances.push_back(Grass);
+                        [](int i) { return i == pokeType::Grass; }))
+                resistances.push_back(pokeType::Grass);
             break;
-        case Ghost:
+        case pokeType::Ghost:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Poison; }))
-                resistances.push_back(Poison);
+                        [](int i) { return i == pokeType::Poison; }))
+                resistances.push_back(pokeType::Poison);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                resistances.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                resistances.push_back(pokeType::Bug);
             break;
-        case Steel:
+        case pokeType::Steel:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Normal; }))
-                resistances.push_back(Normal);
+                        [](int i) { return i == pokeType::Normal; }))
+                resistances.push_back(pokeType::Normal);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Flying; }))
-                resistances.push_back(Flying);
+                        [](int i) { return i == pokeType::Flying; }))
+                resistances.push_back(pokeType::Flying);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Rock; }))
-                resistances.push_back(Rock);
+                        [](int i) { return i == pokeType::Rock; }))
+                resistances.push_back(pokeType::Rock);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                resistances.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                resistances.push_back(pokeType::Bug);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Steel; }))
-                resistances.push_back(Steel);
+                        [](int i) { return i == pokeType::Steel; }))
+                resistances.push_back(pokeType::Steel);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Grass; }))
-                resistances.push_back(Grass);
+                        [](int i) { return i == pokeType::Grass; }))
+                resistances.push_back(pokeType::Grass);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Psychic; }))
-                resistances.push_back(Psychic);
+                        [](int i) { return i == pokeType::Psychic; }))
+                resistances.push_back(pokeType::Psychic);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                resistances.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice; }))
+                resistances.push_back(pokeType::Ice);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Dragon; }))
-                resistances.push_back(Dragon);
+                        [](int i) { return i == pokeType::Dragon; }))
+                resistances.push_back(pokeType::Dragon);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fairy; }))
-                resistances.push_back(Fairy);
+                        [](int i) { return i == pokeType::Fairy; }))
+                resistances.push_back(pokeType::Fairy);
             break;
-        case Fire:
+        case pokeType::Fire:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                resistances.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                resistances.push_back(pokeType::Bug);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Steel; }))
-                resistances.push_back(Steel);
+                        [](int i) { return i == pokeType::Steel; }))
+                resistances.push_back(pokeType::Steel);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fire; }))
-                resistances.push_back(Fire);
+                        [](int i) { return i == pokeType::Fire; }))
+                resistances.push_back(pokeType::Fire);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Grass; }))
-                resistances.push_back(Grass);
+                        [](int i) { return i == pokeType::Grass; }))
+                resistances.push_back(pokeType::Grass);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                resistances.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice;}))
+                resistances.push_back(pokeType::Ice);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fairy; }))
-                resistances.push_back(Fairy);
+                        [](int i) { return i == pokeType::Fairy; }))
+                resistances.push_back(pokeType::Fairy);
             break;
-        case Water:
+        case pokeType::Water:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Steel; }))
-                resistances.push_back(Steel);
+                        [](int i) { return i == pokeType::Steel; }))
+                resistances.push_back(pokeType::Steel);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fire; }))
-                resistances.push_back(Fire);
+                        [](int i) { return i == pokeType::Fire; }))
+                resistances.push_back(pokeType::Fire);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Water; }))
-                resistances.push_back(Water);
+                        [](int i) { return i == pokeType::Water; }))
+                resistances.push_back(pokeType::Water);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                resistances.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice; }))
+                resistances.push_back(pokeType::Ice);
             break;
-        case Grass:
+        case pokeType::Grass:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ground; }))
-                resistances.push_back(Ground);
+                        [](int i) { return i == pokeType::Ground; }))
+                resistances.push_back(pokeType::Ground);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Water; }))
-                resistances.push_back(Water);
+                        [](int i) { return i == pokeType::Water; }))
+                resistances.push_back(pokeType::Water);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Grass; }))
-                resistances.push_back(Grass);
+                        [](int i) { return i == pokeType::Grass; }))
+                resistances.push_back(pokeType::Grass);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Electric; }))
-                resistances.push_back(Electric);
+                        [](int i) { return i == pokeType::Electric; }))
+                resistances.push_back(pokeType::Electric);
             break;
-        case Electric:
+        case pokeType::Electric:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Flying; }))
-                resistances.push_back(Flying);
+                        [](int i) { return i == pokeType::Flying; }))
+                resistances.push_back(pokeType::Flying);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Steel; }))
-                resistances.push_back(Steel);
+                        [](int i) { return i == pokeType::Steel; }))
+                resistances.push_back(pokeType::Steel);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Electric; }))
-                resistances.push_back(Electric);
+                        [](int i) { return i == pokeType::Electric; }))
+                resistances.push_back(pokeType::Electric);
             break;
-        case Psychic:
+        case pokeType::Psychic:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fighting; }))
-                resistances.push_back(Fighting);
+                        [](int i) { return i == pokeType::Fighting; }))
+                resistances.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Psychic; }))
-                resistances.push_back(Psychic);
+                        [](int i) { return i == pokeType::Psychic; }))
+                resistances.push_back(pokeType::Psychic);
             break;
-        case Ice:
+        case pokeType::Ice:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ice; }))
-                resistances.push_back(Ice);
+                        [](int i) { return i == pokeType::Ice; }))
+                resistances.push_back(pokeType::Ice);
             break;
-        case Dragon:
+        case pokeType::Dragon:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fire; }))
-                resistances.push_back(Fire);
+                        [](int i) { return i == pokeType::Fire; }))
+                resistances.push_back(pokeType::Fire);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Water; }))
-                resistances.push_back(Water);
+                        [](int i) { return i == pokeType::Water; }))
+                resistances.push_back(pokeType::Water);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Grass; }))
-                resistances.push_back(Grass);
+                        [](int i) { return i == pokeType::Grass; }))
+                resistances.push_back(pokeType::Grass);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Electric; }))
-                resistances.push_back(Electric);
+                        [](int i) { return i == pokeType::Electric; }))
+                resistances.push_back(pokeType::Electric);
             break;
-        case Dark:
+        case pokeType::Dark:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Ghost; }))
-                resistances.push_back(Ghost);
+                        [](int i) { return i == pokeType::Ghost; }))
+                resistances.push_back(pokeType::Ghost);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Dark; }))
-                resistances.push_back(Dark);
+                        [](int i) { return i == pokeType::Dark; }))
+                resistances.push_back(pokeType::Dark);
             break;
-        case Fairy:
+        case pokeType::Fairy:
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Fighting; }))
-                resistances.push_back(Fighting);
+                        [](int i) { return i == pokeType::Fighting; }))
+                resistances.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Bug; }))
-                resistances.push_back(Bug);
+                        [](int i) { return i == pokeType::Bug; }))
+                resistances.push_back(pokeType::Bug);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == Dark; }))
-                resistances.push_back(Dark);
+                        [](int i) { return i == pokeType::Dark; }))
+                resistances.push_back(pokeType::Dark);
             break;
-        case NONE:
+        case pokeType::NONE:
             break;
     }
 
 }
 
-vector<pokemon::eleType> pokemon::getResistances() {
+vector<pokeType::eleType> pokemon::getResistances() {
     return resistances;
 }
 
@@ -752,70 +752,71 @@ void pokemon::setImmunities() {
     immunities.resize(0);
 
     switch (type1) {
-        case Normal:
-            immunities.push_back(Ghost);
+        case pokeType::Normal:
+            immunities.push_back(pokeType::Ghost);
             break;
-        case Flying:
-            immunities.push_back(Ground);
+        case pokeType::Flying:
+            immunities.push_back(pokeType::Ground);
             break;
-        case Ground:
-            immunities.push_back(Electric);
+        case pokeType::Ground:
+            immunities.push_back(pokeType::Electric);
             break;
-        case Ghost:
-            immunities.push_back(Normal);
-            immunities.push_back(Fighting);
+        case pokeType::Ghost:
+            immunities.push_back(pokeType::Normal);
+            immunities.push_back(pokeType::Fighting);
             break;
-        case Steel:
-            immunities.push_back(Poison);
+        case pokeType::Steel:
+            immunities.push_back(pokeType::Poison);
             break;
-        case Dark:
-            immunities.push_back(Psychic);
+        case pokeType::Dark:
+            immunities.push_back(pokeType::Psychic);
             break;
-        case Fairy:
-            immunities.push_back(Dragon);
+        case pokeType::Fairy:
+            immunities.push_back(pokeType::Dragon);
             break;
         default:
             break;
     }
 
     switch (type2) {
-        case Normal:
-            immunities.push_back(Ghost);
+        case pokeType::Normal:
+            immunities.push_back(pokeType::Ghost);
             break;
-        case Flying:
-            immunities.push_back(Ground);
+        case pokeType::Flying:
+            immunities.push_back(pokeType::Ground);
             break;
-        case Ground:
-            immunities.push_back(Electric);
+        case pokeType::Ground:
+            immunities.push_back(pokeType::Electric);
             break;
-        case Ghost:
-            immunities.push_back(Normal);
-            immunities.push_back(Fighting);
+        case pokeType::Ghost:
+            immunities.push_back(pokeType::Normal);
+            immunities.push_back(pokeType::Fighting);
             break;
-        case Steel:
-            immunities.push_back(Poison);
+        case pokeType::Steel:
+            immunities.push_back(pokeType::Poison);
             break;
-        case Dark:
-            immunities.push_back(Psychic);
+        case pokeType::Dark:
+            immunities.push_back(pokeType::Psychic);
             break;
-        case Fairy:
-            immunities.push_back(Dragon);
+        case pokeType::Fairy:
+            immunities.push_back(pokeType::Dragon);
             break;
         default:
             break;
     }
 
     if (immunities.empty()) {
-        immunities.push_back(NONE);
+        immunities.push_back(pokeType::NONE);
     }
 }
 
-vector<pokemon::eleType> pokemon::getImmunities() {
+vector<pokeType::eleType > pokemon::getImmunities() {
     return immunities;
 }
 
 void pokemon::print(ostream &os) const {
-    //TODO: implement print
+    os << name << ", " << desc;
+    os << type1 << " " << type2;
 }
 
 

@@ -97,6 +97,9 @@
 		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/main.cpp">
 			<Option target="pokecmd"/>
 		</Unit>
+		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokeType.h">
+			<Option target="pokecmd"/>
+		</Unit>
 		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.cpp">
 			<Option target="pokecmd"/>
 		</Unit>

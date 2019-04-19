@@ -6,6 +6,7 @@
 #define POKECMD_POKEMON_H
 
 #include "entry.h"
+#include "pokeType.h"
 #include <vector>
 #include <iostream>
 
@@ -15,19 +16,16 @@ class pokemon: public entry {
 
 public:
 
-    enum eleType{Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric,
-        Psychic, Ice, Dragon, Dark, Fairy, NONE};
-
-    pokemon(string nm, string dsc, pokemon::eleType typ1, pokemon::eleType typ2, double hgt,
+    pokemon(string nm, string dsc, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
             double wgt, int n, string abil1, string abil2, string hAbil);
 
     string getName() const;
 
     string getDesc() const;
 
-    eleType getType1() const;
+    pokeType::eleType getType1() const;
 
-    eleType getType2() const;
+    pokeType::eleType getType2() const;
 
     double getHeight() const;
 
@@ -41,12 +39,11 @@ public:
 
     string getHiddenAbility() const;
 
+    vector<pokeType::eleType> getWeaknesses();
 
-    vector<pokemon::eleType> getWeaknesses();
+    vector<pokeType::eleType> getResistances();
 
-    vector<pokemon::eleType> getResistances();
-
-    vector<pokemon::eleType> getImmunities();
+    vector<pokeType::eleType> getImmunities();
 
     void print(ostream &os) const override;
 
@@ -55,17 +52,17 @@ private:
 
     string name;
     string desc;
-    eleType type1;
-    eleType type2;
+    pokeType::eleType type1;
+    pokeType::eleType type2;
     double height;
     double weight;
     int num;
     string ability1;
     string ability2;
     string hiddenAbility;
-    vector<pokemon::eleType> weaknesses;
-    vector<pokemon::eleType> resistances;
-    vector<pokemon::eleType> immunities;
+    vector<pokeType::eleType> weaknesses;
+    vector<pokeType::eleType> resistances;
+    vector<pokeType::eleType> immunities;
 
     void setWeaknesses();
     void setResistances();
