@@ -4,13 +4,14 @@
 
 #include <iostream>
 #include "pokemon.h"
+#include "pokeType.h"
 #include "human.h"
 
 using namespace std;
 
 int main() {
 
-    pokemon pika = pokemon("Pikachu", "Electric Mouse Pokemon", pokemon::Electric, pokemon::Rock, 35, 43, 25, "Static", "-", "-");
+    pokemon pika = pokemon("Pikachu", "the Electric Mouse Pokemon", pokeType::Electric, pokeType::Rock, 35, 43, 25, "Static", "-", "-");
 
     human oak = human("Samuel Oak", "Professor", "The Pokemon Professor");
 

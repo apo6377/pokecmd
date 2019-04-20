@@ -7,14 +7,17 @@ CMakeFiles/pokecmd.dir/entry.cpp.o: ../entry.h
 CMakeFiles/pokecmd.dir/human.cpp.o: ../entry.h
 CMakeFiles/pokecmd.dir/human.cpp.o: ../human.cpp
 CMakeFiles/pokecmd.dir/human.cpp.o: ../human.h
+CMakeFiles/pokecmd.dir/human.cpp.o: ../pokeType.h
 CMakeFiles/pokecmd.dir/human.cpp.o: ../pokemon.h
 
 CMakeFiles/pokecmd.dir/main.cpp.o: ../entry.h
 CMakeFiles/pokecmd.dir/main.cpp.o: ../human.h
 CMakeFiles/pokecmd.dir/main.cpp.o: ../main.cpp
+CMakeFiles/pokecmd.dir/main.cpp.o: ../pokeType.h
 CMakeFiles/pokecmd.dir/main.cpp.o: ../pokemon.h
 
 CMakeFiles/pokecmd.dir/pokemon.cpp.o: ../entry.h
+CMakeFiles/pokecmd.dir/pokemon.cpp.o: ../pokeType.h
 CMakeFiles/pokecmd.dir/pokemon.cpp.o: ../pokemon.cpp
 CMakeFiles/pokecmd.dir/pokemon.cpp.o: ../pokemon.h
 

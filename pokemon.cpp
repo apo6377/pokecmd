@@ -815,7 +815,8 @@ vector<pokeType::eleType > pokemon::getImmunities() {
 }
 
 void pokemon::print(ostream &os) const {
-    os << name << ", " << desc;
+    os << num << " " << name << endl;
+    os << desc << endl;
     os << type1 << " " << type2;
 }
 
