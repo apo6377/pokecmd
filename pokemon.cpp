@@ -12,10 +12,9 @@
 #include <vector>
 #include <algorithm>
 
-pokemon::pokemon(string nm, string dsc, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
+pokemon::pokemon(string nm, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
                  double wgt, int n, string abil1, string abil2, string hAbil) {
     name = std::move(nm);
-    desc = std::move(dsc);
     type1 = typ1;
     type2 = typ2;
     height = hgt;
@@ -62,6 +61,8 @@ pokemon::pokemon(string nm, string dsc, pokeType::eleType typ1, pokeType::eleTyp
     }
 
 }
+
+pokemon::pokemon() = default;
 
 string pokemon::getName() const {
     return name;
@@ -816,7 +817,6 @@ vector<pokeType::eleType > pokemon::getImmunities() {
 
 void pokemon::print(ostream &os) const {
     os << num << " " << name << endl;
-    os << desc << endl;
     os << type1 << " " << type2;
 }
 

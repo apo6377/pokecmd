@@ -16,8 +16,10 @@ class pokemon: public entry {
 
 public:
 
-    pokemon(string nm, string dsc, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
+    pokemon(string nm, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
             double wgt, int n, string abil1, string abil2, string hAbil);
+
+    pokemon();
 
     string getName() const;
 
