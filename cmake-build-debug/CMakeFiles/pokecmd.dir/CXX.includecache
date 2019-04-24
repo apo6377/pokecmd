@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.cpp
+entry.h
+/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.h
+
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.h
 iostream
 -
@@ -37,6 +41,12 @@ iostream
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/main.cpp
 iostream
 -
+vector
+-
+fstream
+-
+sstream
+-
 pokemon.h
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h
 pokeType.h
@@ -45,6 +55,8 @@ human.h
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.h
 
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokeType.h
+string
+-
 
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.cpp
 utility

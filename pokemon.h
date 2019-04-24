@@ -12,14 +12,12 @@
 
 using namespace std;
 
-class pokemon: public entry {
+class pokemon : public entry {
 
 public:
 
-    pokemon(string nm, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
-            double wgt, int n, string abil1, string abil2, string hAbil);
-
-    pokemon();
+    pokemon(int n, const string &nm, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
+            double wgt, const string &abil1, const string &abil2, const string &hAbil);
 
     string getName() const;
 
@@ -67,7 +65,9 @@ private:
     vector<pokeType::eleType> immunities;
 
     void setWeaknesses();
+
     void setResistances();
+
     void setImmunities();
 };
 

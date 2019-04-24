@@ -12,17 +12,17 @@
 #include <vector>
 #include <algorithm>
 
-pokemon::pokemon(string nm, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
-                 double wgt, int n, string abil1, string abil2, string hAbil) {
-    name = std::move(nm);
+pokemon::pokemon(int n, const string &nm, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
+                 double wgt, const string &abil1, const string &abil2, const string &hAbil) {
+    name.assign(nm);
     type1 = typ1;
     type2 = typ2;
     height = hgt;
     weight = wgt;
     num = n;
-    ability1 = std::move(abil1);
-    ability2 = std::move(abil2);
-    hiddenAbility = std::move(hAbil);
+    ability1.assign(abil1);
+    ability2.assign(abil2);
+    hiddenAbility.assign(hAbil);
 
     setWeaknesses();
     setResistances();
@@ -33,11 +33,11 @@ pokemon::pokemon(string nm, pokeType::eleType typ1, pokeType::eleType typ2, doub
         for (pokeType::eleType &type : weaknesses) {
             if (find(resistances.begin(), resistances.end(), type) != resistances.end()) {
 
-                weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
-                resistances.erase(find(resistances.begin(), resistances.end(), type));
+                //weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
+                //resistances.erase(find(resistances.begin(), resistances.end(), type)); //TODO: fix
             }
         }
-    }else{
+    } else {
         for (pokeType::eleType &type : resistances) {
             if (find(weaknesses.begin(), weaknesses.end(), type) != weaknesses.end()) {
 
@@ -48,21 +48,19 @@ pokemon::pokemon(string nm, pokeType::eleType typ1, pokeType::eleType typ2, doub
     }
 
     // find and remove extra weaknesses and resistances that are also immunities
-    for(pokeType::eleType &type : weaknesses){
-        if (find(immunities.begin(), immunities.end(), type) != immunities.end()){
+    for (pokeType::eleType &type : weaknesses) {
+        if (find(immunities.begin(), immunities.end(), type) != immunities.end()) {
             weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
         }
     }
 
-    for(pokeType::eleType &type : resistances){
-        if (find(immunities.begin(), immunities.end(), type) != immunities.end()){
+    for (pokeType::eleType &type : resistances) {
+        if (find(immunities.begin(), immunities.end(), type) != immunities.end()) {
             resistances.erase(find(resistances.begin(), resistances.end(), type));
         }
     }
 
 }
-
-pokemon::pokemon() = default;
 
 string pokemon::getName() const {
     return name;
@@ -352,7 +350,7 @@ void pokemon::setWeaknesses() {
                         [](int i) { return i == pokeType::Bug; }))
                 weaknesses.push_back(pokeType::Bug);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i ==pokeType::Ghost; }))
+                        [](int i) { return i == pokeType::Ghost; }))
                 weaknesses.push_back(pokeType::Ghost);
             if (none_of(weaknesses.begin(), weaknesses.end(),
                         [](int i) { return i == pokeType::Dark; }))
@@ -367,7 +365,7 @@ void pokemon::setWeaknesses() {
                         [](int i) { return i == pokeType::Fighting; }))
                 weaknesses.push_back(pokeType::Fighting);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i ==pokeType::Rock;}))
+                        [](int i) { return i == pokeType::Rock; }))
                 weaknesses.push_back(pokeType::Rock);
             if (none_of(weaknesses.begin(), weaknesses.end(),
                         [](int i) { return i == pokeType::Steel; }))
@@ -648,7 +646,7 @@ void pokemon::setResistances() {
                         [](int i) { return i == pokeType::Grass; }))
                 resistances.push_back(pokeType::Grass);
             if (none_of(weaknesses.begin(), weaknesses.end(),
-                        [](int i) { return i == pokeType::Ice;}))
+                        [](int i) { return i == pokeType::Ice; }))
                 resistances.push_back(pokeType::Ice);
             if (none_of(weaknesses.begin(), weaknesses.end(),
                         [](int i) { return i == pokeType::Fairy; }))
@@ -811,7 +809,7 @@ void pokemon::setImmunities() {
     }
 }
 
-vector<pokeType::eleType > pokemon::getImmunities() {
+vector<pokeType::eleType> pokemon::getImmunities() {
     return immunities;
 }
 
@@ -819,5 +817,3 @@ void pokemon::print(ostream &os) const {
     os << num << " " << name << endl;
     os << type1 << " " << type2;
 }
-
-

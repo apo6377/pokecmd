@@ -14,10 +14,10 @@ class entry {
 
 protected:
 
-    virtual void print(ostream &) const{}
+    virtual void print(ostream &) const {}
 
 public:
-    friend ostream &operator<<(ostream &, const entry&);
+    friend ostream &operator<<(ostream &, const entry &);
 };
 
 

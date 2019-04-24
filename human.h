@@ -11,11 +11,12 @@
 
 using namespace std;
 
-class human: public entry {
+class human : public entry {
 
 public:
 
     human(string nm, string title, string desc);
+
     human(string nm, string title, vector<pokemon> team, string desc);
 
     string getName() const;
@@ -32,7 +33,7 @@ public:
 private:
     string name;
     string title;
-    vector <pokemon> team;
+    vector<pokemon> team;
     string desc;
 
 };
