@@ -116,7 +116,9 @@ int main() {
                 cout << poke[num];
                 cout << ":";
                 cin >> input;
-                if (input == "w") {
+                if (input == "q") {
+                    input = input;
+                } else if (input == "w") {
                     num++;
                     if (num > 250) {
                         num = 0;
@@ -127,6 +129,8 @@ int main() {
                         num = 250;
                     }
                 } else if (!(input == "q")) {
+                    input = input;
+                } else if ((stoi(input) < 0) || (stoi(input) > 251)) {
                     num = stoi(input) - 1;
                 }
             }
