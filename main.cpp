@@ -52,7 +52,7 @@ void getPokemon(vector<pokemon> &p) {
 
 }
 
-void getHumans(vector<human> &h){
+void getHumans(vector<human> &h) {
 
     string temp, line, word;
 
@@ -92,6 +92,9 @@ void getHumans(vector<human> &h){
 
 int main() {
 
+    string input;
+    int list;
+
     vector<pokemon> poke;
     vector<human> humans;
 
@@ -99,6 +102,41 @@ int main() {
 
     human oak = human("Samuel Oak", "Professor", "The Pokemon Professor");
     humans.push_back(oak);
+
+    cout << "Welcome to the command line Pokedex!" << endl;
+    cout << "Input 1 to browse Pokemon, 2 to browse humnans: ";
+
+    while (!(input == "null")) {
+        cin >> input;
+        if (input == "1") {
+            int num = 0;
+            while (!(input == "q")) {
+                cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+                cout << "up: w, dn: s, quit: q" << endl;
+                cout << poke[num];
+                cout << ":";
+                cin >> input;
+                if (input == "w") {
+                    num++;
+                    if (num > 250) {
+                        num = 0;
+                    }
+                } else if (input == "s") {
+                    num--;
+                    if (num < 0) {
+                        num = 250;
+                    }
+                } else if (!(input == "q")) {
+                    num = stoi(input) - 1;
+                }
+            }
+
+            input = "null";
+
+        } else if (input == "2") {
+
+        }
+    }
 
     return 0;
 }

@@ -16,7 +16,7 @@ public:
         Psychic, Ice, Dragon, Dark, Fairy, NONE
     };
 
-    static eleType toType(string str) {
+    static eleType toType(const string& str) {
         if (str == "Normal") {
             return Normal;
         } else if (str == "Fighting") {

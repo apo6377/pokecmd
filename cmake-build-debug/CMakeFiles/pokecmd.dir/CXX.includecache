@@ -6,29 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.cpp
-entry.h
-/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.h
-
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.h
 iostream
 -
 vector
 -
-
-/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.cpp
-utility
--
-utility
--
-utility
--
-utility
--
-utility
--
-human.h
-/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.h
 
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/human.h
 entry.h
@@ -56,22 +38,6 @@ human.h
 
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokeType.h
 string
--
-
-/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.cpp
-utility
--
-utility
--
-pokemon.h
-/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h
-pokeType.h
-/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokeType.h
-iostream
--
-vector
--
-algorithm
 -
 
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h

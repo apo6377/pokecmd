@@ -29,21 +29,12 @@ pokemon::pokemon(int n, const string &nm, pokeType::eleType typ1, pokeType::eleT
     setImmunities();
 
     // find and remove conflicting weaknesses and resistances
-    if (weaknesses.size() >= resistances.size()) {
-        for (pokeType::eleType &type : weaknesses) {
-            if (find(resistances.begin(), resistances.end(), type) != resistances.end()) {
 
-                //weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
-                //resistances.erase(find(resistances.begin(), resistances.end(), type)); //TODO: fix
-            }
-        }
-    } else {
-        for (pokeType::eleType &type : resistances) {
-            if (find(weaknesses.begin(), weaknesses.end(), type) != weaknesses.end()) {
+    for (pokeType::eleType &type : resistances) {
+        if (find(weaknesses.begin(), weaknesses.end(), type) != weaknesses.end()) {
 
-                weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
-                resistances.erase(find(resistances.begin(), resistances.end(), type));
-            }
+            weaknesses.erase(find(weaknesses.begin(), weaknesses.end(), type));
+            resistances.erase(find(resistances.begin(), resistances.end(), type));
         }
     }
 
@@ -814,6 +805,33 @@ vector<pokeType::eleType> pokemon::getImmunities() {
 }
 
 void pokemon::print(ostream &os) const {
-    os << num << " " << name << endl;
-    os << type1 << " " << type2;
+    os << "#" << num << "   " << name << endl;
+    os << type1 << "    " << type2 << endl;
+    os << endl << "Ability 1: " << ability1 << endl;
+    os << "Ability 2: " << ability2 << endl;
+    os << "Hidden Ability: " << hiddenAbility << endl;
+    os << endl << "Weaknesses:" << endl;
+    for (pokeType::eleType weakness : weaknesses){
+        if (weakness != weaknesses[weaknesses.size()-1]) {
+            os << weakness << ", ";
+        }else{
+            os << weakness << endl;
+        }
+    }
+    os << "Resistances:" << endl;
+    for (pokeType::eleType resistance : resistances){
+        if (resistance != resistances[resistances.size()-1]) {
+            os << resistance << ", ";
+        }else{
+            os << resistance << endl;
+        }
+    }
+    os << "Immunities:" << endl;
+    for (pokeType::eleType immunity : immunities){
+        if (immunity != immunities[immunities.size()-1]) {
+            os << immunity << ", ";
+        }else{
+            os << immunity << endl;
+        }
+    }
 }
