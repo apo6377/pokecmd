@@ -19,10 +19,6 @@ public:
     pokemon(int n, const string &nm, pokeType::eleType typ1, pokeType::eleType typ2, double hgt,
             double wgt, const string &abil1, const string &abil2, const string &hAbil);
 
-    string getName() const;
-
-    string getDesc() const;
-
     pokeType::eleType getType1() const;
 
     pokeType::eleType getType2() const;
@@ -50,8 +46,6 @@ public:
 
 private:
 
-    string name;
-    string desc;
     pokeType::eleType type1;
     pokeType::eleType type2;
     double height;

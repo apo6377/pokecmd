@@ -14,10 +14,18 @@ class entry {
 
 protected:
 
+    string name;
     virtual void print(ostream &) const {}
 
 public:
-    friend ostream &operator<<(ostream &, const entry &);
+    friend ostream &operator<<(ostream &out, const entry &entry) {
+        entry.print(out);
+        return out;
+    }
+
+    string getName(){
+        return name;
+    }
 };
 
 

@@ -29,6 +29,8 @@ fstream
 -
 sstream
 -
+algorithm
+-
 pokemon.h
 /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/pokemon.h
 pokeType.h

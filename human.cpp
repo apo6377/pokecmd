@@ -22,15 +22,12 @@ human::human(string nm, string titl, string des) {
     desc = std::move(des);
 }
 
-human::human(string nm, string titl, vector<pokemon> poke, string des) {
+human::human(string nm, string titl, string loc, string reg, string des) {
     name = std::move(nm);
     title = std::move(titl);
-    team = move(poke);
     desc = std::move(des);
-}
-
-string human::getName() const {
-    return name;
+    location = std::move(loc);
+    region = std::move(reg);
 }
 
 string human::getTitle() const {
@@ -46,5 +43,7 @@ string human::getDesc() const {
 }
 
 void human::print(ostream &os) const {
-    //TODO: implement print
+    cout << title << " " << name << endl;
+    cout << desc << endl;
+    cout << location << ", " << region << endl;
 }

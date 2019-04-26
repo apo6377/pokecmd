@@ -1,4 +1,4 @@
-/home/alex/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6707.62/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd
+/home/alex/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/cmake-build-debug

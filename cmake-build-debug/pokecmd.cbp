@@ -82,9 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.cpp">
-			<Option target="pokecmd"/>
-		</Unit>
 		<Unit filename="/home/alex/classwork/S2019/EEEE-346/pokecmd/pokecmd/entry.h">
 			<Option target="pokecmd"/>
 		</Unit>

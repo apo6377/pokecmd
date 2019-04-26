@@ -17,9 +17,7 @@ public:
 
     human(string nm, string title, string desc);
 
-    human(string nm, string title, vector<pokemon> team, string desc);
-
-    string getName() const;
+    human(string nm, string title, string loc, string reg, string desc);
 
     string getTitle() const;
 
@@ -31,10 +29,11 @@ public:
 
 
 private:
-    string name;
     string title;
     vector<pokemon> team;
     string desc;
+    string location;
+    string region;
 
 };
 

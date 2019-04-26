@@ -53,14 +53,6 @@ pokemon::pokemon(int n, const string &nm, pokeType::eleType typ1, pokeType::eleT
 
 }
 
-string pokemon::getName() const {
-    return name;
-}
-
-string pokemon::getDesc() const {
-    return desc;
-}
-
 pokeType::eleType pokemon::getType1() const {
     return type1;
 }
@@ -810,7 +802,9 @@ void pokemon::print(ostream &os) const {
     os << endl << "Ability 1: " << ability1 << endl;
     os << "Ability 2: " << ability2 << endl;
     os << "Hidden Ability: " << hiddenAbility << endl;
-    os << endl << "Weaknesses:" << endl;
+    os << "Height: " << height << " Meters" << endl;
+    os << "Weight: " << weight << " Kilograms" << endl;
+    os << endl << "Weaknesses: ";
     for (pokeType::eleType weakness : weaknesses){
         if (weakness != weaknesses[weaknesses.size()-1]) {
             os << weakness << ", ";
@@ -818,7 +812,7 @@ void pokemon::print(ostream &os) const {
             os << weakness << endl;
         }
     }
-    os << "Resistances:" << endl;
+    os << "Resistances: ";
     for (pokeType::eleType resistance : resistances){
         if (resistance != resistances[resistances.size()-1]) {
             os << resistance << ", ";
@@ -826,7 +820,7 @@ void pokemon::print(ostream &os) const {
             os << resistance << endl;
         }
     }
-    os << "Immunities:" << endl;
+    os << "Immunities: ";
     for (pokeType::eleType immunity : immunities){
         if (immunity != immunities[immunities.size()-1]) {
             os << immunity << ", ";
